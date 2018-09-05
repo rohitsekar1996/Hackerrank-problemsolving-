@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int arr[6][6];
+    vector <int> v;
+    int p=0,m=0,sum=0;
+    for(int i=0;i<6;i++)
+    {
+    for(int j=0;j<6;j++)
+    {
+        cin>>arr[i][j];
+    }
+    }
+    for(int k=0;k<16;k++)
+    {
+    for(int i=p;i<p+3;i++)
+    {
+    for(int j=m;j<m+3;j++)
+    {   
+        if(i==p+1&&j==m+1)
+        {
+          sum+=arr[i][j];
+        }
+        if(i!=p+1)
+        {
+        sum+=arr[i][j];
+        }
+    }
+    }
+        v.push_back(sum);
+        //cout<<sum<<" ";
+        sum=0;
+        m++;
+        if(m+3>6)
+        {
+            m=0;
+            p++;
+        }
+        if(p+3>6)
+        {
+            break;
+        }
+        
+    }
+     auto i1=max_element(v.begin(),v.end());
+    cout<<*i1;
+    
+}
